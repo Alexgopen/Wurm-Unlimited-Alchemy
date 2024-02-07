@@ -1,10 +1,4 @@
-
-.idea/workspace.xml
-.idea/workspace.xml
-.idea/workspace.xml
-*.xml
-*.xml
-.idea/workspace.xml
-.idea/runConfigurations.xml
-.idea/misc.xml
-.idea/workspace.xml
+/target/
+/.settings/
+.classpath
+.project
