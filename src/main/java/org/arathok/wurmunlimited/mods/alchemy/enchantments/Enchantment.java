@@ -57,7 +57,8 @@ public class Enchantment {
             ps.setLong(1, aItemId);
             ps.execute();
             ps.close();
-        } catch (SQLException throwables) {
+        }
+        catch (SQLException throwables) {
             Alchemy.logger.log(Level.SEVERE, "something went wrong deleting an enchanted Item from the DB!",
                     throwables);
             throwables.printStackTrace();

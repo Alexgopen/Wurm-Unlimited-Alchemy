@@ -99,9 +99,11 @@ public class AddictionHandler {
                                     int yourWeight = (int) ((strength / 5) * 7 * 1.5);
                                     legs.setWeight(yourWeight * 1000, true);
                                     aPlayer.getInventory().insertItem(legs, true);
-                                } catch (FailedException e) {
+                                }
+                                catch (FailedException e) {
                                     e.printStackTrace();
-                                } catch (NoSuchTemplateException e) {
+                                }
+                                catch (NoSuchTemplateException e) {
                                     e.printStackTrace();
                                     Alchemy.logger.log(Level.SEVERE,
                                             "I was trying to create an item but that template didn't exist! Weird!");
@@ -127,7 +129,8 @@ public class AddictionHandler {
                                                 + ". \nCurrent Addiction Level: " + addiction.currentAddictionLevel
                                                 + "\n Previous Addiction Level: " + addiction.previousAddictionLevel
                                                 + "\n Next Effect Polled for this player: " + (addictionTimer) / 1000);
-                            } else {
+                            }
+                            else {
                                 aPlayer.die(false, "withdrawal effects");
                                 Alchemy.logger.log(Level.INFO,
                                         "player " + aPlayer + " died because of addiction. Addiction Level was: "
@@ -154,7 +157,8 @@ public class AddictionHandler {
                                                 + ". \nCurrent Addiction Level: " + addiction.currentAddictionLevel
                                                 + "\n Previous Addiction Level: " + addiction.previousAddictionLevel
                                                 + "\n Next Effect Polled for this player: " + (addictionTimer) / 1000);
-                            } else {
+                            }
+                            else {
                                 aPlayer.die(false, "withdrawal effects");
                                 Alchemy.logger.log(Level.INFO,
                                         "player " + aPlayer + " died because of addiction. Addiction Level was: "
@@ -183,7 +187,8 @@ public class AddictionHandler {
                                                 + ". \nCurrent Addiction Level: " + addiction.currentAddictionLevel
                                                 + "\n Previous Addiction Level: " + addiction.previousAddictionLevel
                                                 + "\n Next Effect Polled for this player: " + (addictionTimer) / 1000);
-                            } else {
+                            }
+                            else {
                                 aPlayer.die(false, "withdrawal effects");
                                 Alchemy.logger.log(Level.INFO,
                                         "player " + aPlayer + " died because of addiction. Addiction Level was: "
@@ -212,7 +217,8 @@ public class AddictionHandler {
                                                 + ". \nCurrent Addiction Level: " + addiction.currentAddictionLevel
                                                 + "\n Previous Addiction Level: " + addiction.previousAddictionLevel
                                                 + "\n Next Effect Polled for this player: " + (addictionTimer) / 1000);
-                            } else {
+                            }
+                            else {
                                 aPlayer.die(false, "withdrawal effects");
                                 Alchemy.logger.log(Level.INFO,
                                         "player " + aPlayer + " died because of addiction. Addiction Level was: "
@@ -240,7 +246,8 @@ public class AddictionHandler {
                                                 + ". \nCurrent Addiction Level: " + addiction.currentAddictionLevel
                                                 + "\n Previous Addiction Level: " + addiction.previousAddictionLevel
                                                 + "\n Next Effect Polled for this player: " + (addictionTimer) / 1000);
-                            } else {
+                            }
+                            else {
                                 aPlayer.die(false, "withdrawal effects");
                                 Alchemy.logger.log(Level.INFO,
                                         "player " + aPlayer + " died because of addiction. Addiction Level was: "
@@ -248,7 +255,8 @@ public class AddictionHandler {
                             }
 
                         }
-                    } else {
+                    }
+                    else {
                         Item[] items = aPlayer.getAllItems();
                         if (items.length > 0)
                             for (Item item : items) {

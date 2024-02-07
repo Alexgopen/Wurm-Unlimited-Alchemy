@@ -69,9 +69,7 @@
 					<artifactId>formatter-maven-plugin</artifactId>
 					<version>2.16.0</version>
 					<configuration>
-						<configFile>
-							${project.basedir}/formatter.xml
-						</configFile>
+						<configFile>formatter.xml</configFile>
 					</configuration>
 					<executions>
 						<execution>

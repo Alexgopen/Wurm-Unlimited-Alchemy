@@ -58,7 +58,8 @@ public class Addiction {
             ps.setLong(1, aplayerId);
             ps.execute();
             ps.close();
-        } catch (SQLException throwables) {
+        }
+        catch (SQLException throwables) {
             Alchemy.logger.log(Level.SEVERE, "something went wrong deleting an Addiction from the DB!", throwables);
             throwables.printStackTrace();
         }
