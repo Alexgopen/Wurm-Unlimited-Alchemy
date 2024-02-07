@@ -309,9 +309,10 @@ public class AlchItems {
         registerCharcoalDust();
         registerCharcoalFilter();
         registerPurifiedWater();
-        if (Config.purifiedWaterCooking)
+        if (Config.purifiedWaterCooking) {
             TempStates.addState(
                     new TempState(ItemList.water, AlchItems.purifiedWaterId, (short) 4000, true, true, false));
+        }
         registerAlchemicalCompound();
         registerGemPowder();
 
