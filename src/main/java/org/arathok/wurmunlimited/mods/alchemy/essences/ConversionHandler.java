@@ -5,6 +5,6 @@ import java.util.List;
 
 public class ConversionHandler {
 
-    public static List<Conversion> conversions= new LinkedList<>();
+    public static List<Conversion> conversions = new LinkedList<>();
 
 }

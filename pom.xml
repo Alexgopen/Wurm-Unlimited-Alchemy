@@ -6,7 +6,10 @@
 	<artifactId>Wurm-Unlimited-Alchemy</artifactId>
 	<version>1.8.1-SNAPSHOT</version>
 	<name>Wurm Unlimited Alchemy</name>
-	<description>Wurm Unlimited mod to add new functionality to the Alchemy skill.</description>
+	<description>Adds functionality to the Alchemy skill.</description>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
 	<repositories>
 		<repository>
 			<id>gotti-no-ip-org-ssh-repository</id>
@@ -60,6 +63,18 @@
 						<source>1.8</source>
 						<target>1.8</target>
 					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>net.revelc.code.formatter</groupId>
+					<artifactId>formatter-maven-plugin</artifactId>
+					<version>2.23.0</version>
+					<executions>
+						<execution>
+							<goals>
+								<goal>format</goal>
+							</goals>
+						</execution>
+					</executions>
 				</plugin>
 			</plugins>
 		</pluginManagement>

@@ -2,3 +2,12 @@
 /.settings/
 .classpath
 .project
+
+# Uncomment after committing to remove these
+#/.idea/
+#/bin/
+#/META-INF/
+#**/*.xml
+#**/*.iml
+#**/*.eml
+#**/*.userlibraries
