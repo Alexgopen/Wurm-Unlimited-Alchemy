@@ -33,73 +33,59 @@ public class PotionBehaviour implements BehaviourProvider {
             if (PotionPerformer.canUse(performer, target))
                 return new ArrayList<>(consume);
 
-        }
-        else if (target.getTemplateId() == PotionItems.potionIdGoat) {
+        } else if (target.getTemplateId() == PotionItems.potionIdGoat) {
             if (PotionPerformer.canUse(performer, target))
                 return new ArrayList<>(consume);
 
-        }
-        else if (target.getTemplateId() == PotionItems.potionIdExcell) {
+        } else if (target.getTemplateId() == PotionItems.potionIdExcell) {
             if (PotionPerformer.canUse(performer, target))
                 return new ArrayList<>(consume);
 
-        }
-        else if (target.getTemplateId() == PotionItems.potionIdFranticCharge) {
+        } else if (target.getTemplateId() == PotionItems.potionIdFranticCharge) {
             if (PotionPerformer.canUse(performer, target))
                 return new ArrayList<>(consume);
 
-        }
-        else if (target.getTemplateId() == PotionItems.potionIdMorningFog) {
+        } else if (target.getTemplateId() == PotionItems.potionIdMorningFog) {
             if (PotionPerformer.canUse(performer, target))
                 return new ArrayList<>(consume);
 
-        }
-        else if (target.getTemplateId() == PotionItems.potionIdOakshell) {
+        } else if (target.getTemplateId() == PotionItems.potionIdOakshell) {
             if (PotionPerformer.canUse(performer, target))
                 return new ArrayList<>(consume);
 
-        }
-        else if (target.getTemplateId() == PotionItems.potionIdSixthSense) {
+        } else if (target.getTemplateId() == PotionItems.potionIdSixthSense) {
             if (PotionPerformer.canUse(performer, target))
                 return new ArrayList<>(consume);
 
-        }
-        else if (target.getTemplateId() == PotionItems.potionIdTruehit) {
+        } else if (target.getTemplateId() == PotionItems.potionIdTruehit) {
             if (PotionPerformer.canUse(performer, target))
                 return new ArrayList<>(consume);
 
-        }
-        else if (target.getTemplateId() == PotionItems.potionIdStrength) {
+        } else if (target.getTemplateId() == PotionItems.potionIdStrength) {
             if (PotionPerformer.canUse(performer, target))
                 return new ArrayList<>(consume);
 
-        }
-        else if (target.getTemplateId() == PotionItems.potionIdWillowspine) {
+        } else if (target.getTemplateId() == PotionItems.potionIdWillowspine) {
             if (PotionPerformer.canUse(performer, target))
                 return new ArrayList<>(consume);
 
-        }
-        else if (target.getTemplateId() == PotionItems.potionIdVynora) {
+        } else if (target.getTemplateId() == PotionItems.potionIdVynora) {
             if (PotionPerformer.canUse(performer, target))
                 return new ArrayList<>(consume);
 
-        }
-        else if (target.getTemplateId() == PotionItems.potionIdRefresh) {
+        } else if (target.getTemplateId() == PotionItems.potionIdRefresh) {
             if (PotionPerformer.canUse(performer, target))
                 return new ArrayList<>(consume);
 
-        }
-        else if (target.getTemplateId() == PotionItems.potionManaId) {
+        } else if (target.getTemplateId() == PotionItems.potionManaId) {
             if (PotionPerformer.canUse(performer, target))
                 return new ArrayList<>(consume);
 
-        }
-        else if (target.getTemplateId() == PotionItems.potionKarmaId) {
+        } else if (target.getTemplateId() == PotionItems.potionKarmaId) {
             if (PotionPerformer.canUse(performer, target))
                 return new ArrayList<>(consume);
 
-        }
-        else
+        } else
             return null;
 
         return null;

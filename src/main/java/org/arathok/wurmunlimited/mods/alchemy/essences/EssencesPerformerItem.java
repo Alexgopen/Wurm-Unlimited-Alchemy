@@ -98,8 +98,7 @@ public class EssencesPerformerItem implements ActionPerformer {
                                 "You start imbuing the Item with the essence and it transforms its material to "
                                         + Item.getMaterialString(source.getMaterial()) + "!");
                         target.setMaterial(source.getMaterial());
-                    }
-                    else {
+                    } else {
                         Conversion conversionToCheck = new Conversion();
                         for (Conversion oneConversion : ConversionHandler.conversions)
                             if (oneConversion.wurmId == target.getWurmId()) {
@@ -116,8 +115,7 @@ public class EssencesPerformerItem implements ActionPerformer {
                             target.setMaterial(source.getMaterial());
                             target.setName(conversionToCheck.nameBeforeConversion);
                             ConversionHandler.conversions.remove(conversionToCheck);
-                        }
-                        else {
+                        } else {
                             target.setName(target.getName() + " transmuting ( "
                                     + Item.getMaterialString(source.getMaterial()) + " " + multiplier + " %");
                             performer.getCommunicator().sendAlertServerMessage(
@@ -129,13 +127,11 @@ public class EssencesPerformerItem implements ActionPerformer {
                         }
 
                     }
-                }
-                else
+                } else
                     performer.getCommunicator().sendAlertServerMessage("Your Item is already of this material!");
                 return propagate(action, ActionPropagation.FINISH_ACTION, ActionPropagation.NO_SERVER_PROPAGATION,
                         ActionPropagation.NO_ACTION_PERFORMER_PROPAGATION);
-            }
-            else
+            } else
                 performer.getCommunicator()
                         .sendAlertServerMessage("Your dont have enough Transmutation Liquid to transorm your item!");
 

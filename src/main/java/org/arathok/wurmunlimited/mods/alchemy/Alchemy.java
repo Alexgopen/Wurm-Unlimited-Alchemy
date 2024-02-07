@@ -81,7 +81,7 @@ public class Alchemy implements WurmServerMod, Initable, PreInitable, Configurab
     public void preInit() {
         /*
          * try { ClassPool classPool = HookManager.getInstance().getClassPool();
-         * 
+         *
          * CtClass ctItem = classPool.getCtClass("com.wurmonline.server.items.Item");
          * ctItem.getMethod("getName", "(Z)Ljava/lang/String;").insertAfter(
          * "return path.to.MyHooks.getNameHook(this, $_);" ); } catch (Throwable e) {

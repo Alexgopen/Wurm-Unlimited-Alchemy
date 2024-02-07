@@ -30,8 +30,7 @@ public class ServerTravelHook {
                         "(Lcom/wurmonline/server/items/Item;Ljava/io/DataOutputStream;Z)V");
                 sendItem.insertBefore(
                         "org.arathok.wurmunlimited.mods.alchemy.enchantments.ServerTravelHook.insertBefore($1);");
-            }
-            catch (NotFoundException | CannotCompileException e) {
+            } catch (NotFoundException | CannotCompileException e) {
                 Alchemy.logger.log(Level.WARNING, "Class  PlayerTravel not found, or Code for hook is incorrect", e);
                 e.printStackTrace();
 

@@ -39,12 +39,10 @@ public class EssencesBehaviourTile implements BehaviourProvider {
                 && EssencesPerformerTile.canUse(performer, source)) {
 
             return new ArrayList<>(imbue);
-        }
-        else if ((type >= (byte) 205 && type <= (byte) 245 || type == (byte) 203)
+        } else if ((type >= (byte) 205 && type <= (byte) 245 || type == (byte) 203)
                 && source.getTemplate() == EssencesItems.acidicExtract) {
             return new ArrayList<>(imbue);
-        }
-        else
+        } else
             return null;
 
     }

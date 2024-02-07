@@ -60,8 +60,7 @@ public class EnchantmentHandler {
                                 Alchemy.logger.log(Level.INFO, "Oil on Item " + enchantedItem.itemId
                                         + realItem.getName() + "was removed because the player was mailing it");
 
-                        }
-                        catch (NoSuchItemException e) {
+                        } catch (NoSuchItemException e) {
                             Alchemy.logger.log(Level.SEVERE, "No item found for the id" + enchantedItem.itemId, e);
                             e.printStackTrace();
                         }
@@ -83,8 +82,7 @@ public class EnchantmentHandler {
                             Alchemy.logger.log(Level.INFO, "Oil on Item " + enchantedItem.itemId + realItem.getName()
                                     + "was removed because the player was mailing it");
 
-                    }
-                    catch (NoSuchItemException e) {
+                    } catch (NoSuchItemException e) {
                         Alchemy.logger.log(Level.SEVERE, "No item found for the id" + enchantedItem.itemId, e);
                         e.printStackTrace();
                     }
@@ -107,8 +105,7 @@ public class EnchantmentHandler {
                             Alchemy.logger.log(Level.INFO,
                                     "Oil on Item " + enchantedItem.itemId + " " + realItem.getName()
                                             + "was removed because the player was too close to the world Border");
-                    }
-                    catch (NoSuchItemException e) {
+                    } catch (NoSuchItemException e) {
                         Alchemy.logger.log(Level.SEVERE, "No item found for the id" + enchantedItem.itemId, e);
                         e.printStackTrace();
                     }
@@ -120,8 +117,7 @@ public class EnchantmentHandler {
                 VolaTile[] itemTiles;
                 if (realItem.isOnSurface()) {
                     itemTiles = Zones.getTilesSurrounding(itemTileX, itemTileY, true, 5);
-                }
-                else {
+                } else {
                     itemTiles = Zones.getTilesSurrounding(itemTileX, itemTileY, false, 5);
                 }
                 boolean portalFound = false;
@@ -150,8 +146,7 @@ public class EnchantmentHandler {
                         if (Config.verboseLogging)
                             Alchemy.logger.log(Level.INFO, "Oil on Item " + enchantedItem.itemId + realItem.getName()
                                     + "was removed because the player was too close to a portal");
-                    }
-                    catch (NoSuchItemException e) {
+                    } catch (NoSuchItemException e) {
                         Alchemy.logger.log(Level.SEVERE, "No item found for the id" + enchantedItem.itemId, e);
                         e.printStackTrace();
                     }
@@ -174,8 +169,7 @@ public class EnchantmentHandler {
                                             + " seconds timer on it ran out");
                         enchantmentsIterator.remove();
                         Enchantment.remove(Alchemy.dbconn, enchantedItem.itemId);
-                    }
-                    catch (NoSuchItemException e) {
+                    } catch (NoSuchItemException e) {
                         Alchemy.logger.log(Level.SEVERE, "No item found for the id" + enchantedItem.itemId, e);
                         e.printStackTrace();
                     }

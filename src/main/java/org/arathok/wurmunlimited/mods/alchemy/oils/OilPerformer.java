@@ -41,8 +41,7 @@ public class OilPerformer implements ActionPerformer {
 
             actionEntry = new ActionEntryBuilder((short) ModActions.getNextActionId(), "apply weapon oil", "applying",
                     types).range(4).priority(1000).build();
-        }
-        else {
+        } else {
             types = new int[] { 6 /* ACTION_TYPE_NOMOVE */, 48 /* ACTION_TYPE_ENEMY_ALWAYS */,
                     36 /* USE SOURCE AND TARGET */, 28, // nonstack in fight
 
@@ -105,8 +104,7 @@ public class OilPerformer implements ActionPerformer {
             performer.sendActionControl(action.getActionString(), true, 50);
             playedOpeningSound = false;
             playedGlugGlugSound = false;
-        }
-        else if (counter > 1.0F && action.getSecond() == 1) {
+        } else if (counter > 1.0F && action.getSecond() == 1) {
             if (!playedOpeningSound) {
                 SoundPlayer.playSound("sound.openFlask", performer, 1.6F);
 
@@ -116,14 +114,12 @@ public class OilPerformer implements ActionPerformer {
             }
             return propagate(action, ActionPropagation.CONTINUE_ACTION, ActionPropagation.NO_SERVER_PROPAGATION,
                     ActionPropagation.NO_ACTION_PERFORMER_PROPAGATION);
-        }
-        else if (counter > 1.0F && action.getSecond() == 3) {
+        } else if (counter > 1.0F && action.getSecond() == 3) {
             if (!playedGlugGlugSound) {
                 SoundPlayer.playSound("sound.oilWeapon", performer, 1.6F);
                 playedGlugGlugSound = true;
             }
-        }
-        else if (counter > 1.0F && action.getSecond() == 5) {
+        } else if (counter > 1.0F && action.getSecond() == 5) {
             /*
              * if (target.getTemplateId() != OilItems.weaponOilDemiseAnimalId)
              *
@@ -145,8 +141,7 @@ public class OilPerformer implements ActionPerformer {
                             ActionPropagation.NO_ACTION_PERFORMER_PROPAGATION);
 
                 }
-            }
-            catch (NoSuchItemException e) {
+            } catch (NoSuchItemException e) {
                 Alchemy.logger.log(Level.SEVERE, "no item found for" + target.getName(), e);
                 e.printStackTrace();
             }
@@ -175,8 +170,7 @@ public class OilPerformer implements ActionPerformer {
                 if (item.getTemplate().getName().contains("pelt") || item.getTemplate().getName().contains("Pelt")) {
                     hasPelt = true;
                     break;
-                }
-                else if (item.getTemplate().getName().contains("back")) {
+                } else if (item.getTemplate().getName().contains("back")) {
                     Set<Item> backpackItems;
                     backpackItems = item.getItems();
                     for (Item itemInBackpack : backpackItems) {
@@ -206,8 +200,7 @@ public class OilPerformer implements ActionPerformer {
                             && effs.getSpellEffect((byte) 12) == null) {
                         eff = new SpellEffect(target.getWurmId(), (byte) 11, power, (seconds));
                         effs.addSpellEffect(eff);
-                    }
-                    else {
+                    } else {
                         performer.getCommunicator().sendAlertServerMessage(" You pour the " + source.getName()
                                 + " over the " + target.getName()
                                 + " but it already has an enchantment of that same type on it. A priest has poured a piece of "
@@ -242,8 +235,7 @@ public class OilPerformer implements ActionPerformer {
                             source.setWeight(source.getWeightGrams() - 80, true);
                         else
                             Items.destroyItem(source.getWurmId());
-                    }
-                    else
+                    } else
                         Items.destroyItem(source.getWurmId());
 
                     target.setName((target.getName() + " (oil,hunt)"));
@@ -293,14 +285,12 @@ public class OilPerformer implements ActionPerformer {
                                     arrowEnchantment.insert(Alchemy.dbconn);
                                     // update ModSupportDb
 
-                                }
-                                catch (RuntimeException | SQLException ex) {
+                                } catch (RuntimeException | SQLException ex) {
                                     Alchemy.logger.log(Level.INFO,
                                             "RuntimeException or SQLException happened or database closed", ex);
                                     ex.printStackTrace();
                                 }
-                            }
-                            else {
+                            } else {
                                 fails++;
                             }
                         }
@@ -335,8 +325,7 @@ public class OilPerformer implements ActionPerformer {
                             && effs.getSpellEffect((byte) 12) == null) {
                         eff = new SpellEffect(target.getWurmId(), (byte) 9, power, (seconds));
                         effs.addSpellEffect(eff);
-                    }
-                    else {
+                    } else {
                         performer.getCommunicator().sendAlertServerMessage(" You pour the " + source.getName()
                                 + " over the " + target.getName()
                                 + " but it already has an enchantment of that same type on it. A priest has poured a piece of "
@@ -357,8 +346,7 @@ public class OilPerformer implements ActionPerformer {
                         source.setWeight((source.getWeightGrams() - 20), true);
                         if (source.getWeightGrams() <= 20)
                             Items.destroyItem(source.getWurmId());
-                    }
-                    else if (hasPelt) {
+                    } else if (hasPelt) {
                         performer.getCommunicator().sendNormalServerMessage(
                                 "You drench your pelt in some oil and use it to coat the weapon evenly. "
                                         + "You saved some oil and put the phial back into your pocket. It should be good for a few more uses.",
@@ -367,8 +355,7 @@ public class OilPerformer implements ActionPerformer {
                             source.setWeight(source.getWeightGrams() - 80, true);
                         else
                             Items.destroyItem(source.getWurmId());
-                    }
-                    else
+                    } else
                         Items.destroyItem(source.getWurmId());
 
                     e.itemNameBeforeEnchantment = target.getName();
@@ -419,15 +406,13 @@ public class OilPerformer implements ActionPerformer {
                                     arrowEnchantment.insert(Alchemy.dbconn);
                                     // update ModSupportDb
 
-                                }
-                                catch (RuntimeException | SQLException ex) {
+                                } catch (RuntimeException | SQLException ex) {
 
                                     Alchemy.logger.log(Level.INFO,
                                             "RuntimeException or SQLException happened or database closed", ex);
                                     ex.printStackTrace();
                                 }
-                            }
-                            else {
+                            } else {
                                 fails++;
                             }
                         }
@@ -459,8 +444,7 @@ public class OilPerformer implements ActionPerformer {
                             && effs.getSpellEffect((byte) 12) == null) {
                         eff = new SpellEffect(target.getWurmId(), (byte) 10, power, (seconds));
                         effs.addSpellEffect(eff);
-                    }
-                    else {
+                    } else {
                         performer.getCommunicator().sendAlertServerMessage(" You pour the " + source.getName()
                                 + " over the " + target.getName()
                                 + " but it already has an enchantment of that same type on it. A priest has poured a piece of "
@@ -491,8 +475,7 @@ public class OilPerformer implements ActionPerformer {
                             source.setWeight(source.getWeightGrams() - 80, true);
                         else
                             Items.destroyItem(source.getWurmId());
-                    }
-                    else
+                    } else
                         Items.destroyItem(source.getWurmId());
 
                     e.itemNameBeforeEnchantment = target.getName();
@@ -544,14 +527,12 @@ public class OilPerformer implements ActionPerformer {
                                     arrowEnchantment.insert(Alchemy.dbconn);
                                     // update ModSupportDb
 
-                                }
-                                catch (RuntimeException | SQLException ex) {
+                                } catch (RuntimeException | SQLException ex) {
                                     Alchemy.logger.log(Level.INFO,
                                             "RuntimeException or SQLException happened or database closed", ex);
                                     ex.printStackTrace();
                                 }
-                            }
-                            else {
+                            } else {
                                 fails++;
                             }
                         }
@@ -588,8 +569,7 @@ public class OilPerformer implements ActionPerformer {
                             && effs.getSpellEffect((byte) 11) == null) {
                         eff = new SpellEffect(target.getWurmId(), (byte) 12, power, (seconds));
                         effs.addSpellEffect(eff);
-                    }
-                    else {
+                    } else {
                         performer.getCommunicator().sendAlertServerMessage(" You pour the " + source.getName()
                                 + " over the " + target.getName()
                                 + " but it already has an enchantment of that same type on it. A priest has poured a piece of "
@@ -619,8 +599,7 @@ public class OilPerformer implements ActionPerformer {
                             source.setWeight(source.getWeightGrams() - 80, true);
                         else
                             Items.destroyItem(source.getWurmId());
-                    }
-                    else
+                    } else
                         Items.destroyItem(source.getWurmId());
 
                     e.itemNameBeforeEnchantment = target.getName();
@@ -671,14 +650,12 @@ public class OilPerformer implements ActionPerformer {
                                     arrowEnchantment.insert(Alchemy.dbconn);
                                     // update ModSupportDb
 
-                                }
-                                catch (RuntimeException | SQLException ex) {
+                                } catch (RuntimeException | SQLException ex) {
                                     Alchemy.logger.log(Level.INFO,
                                             "RuntimeException or SQLException happened or database closed", ex);
                                     ex.printStackTrace();
                                 }
-                            }
-                            else {
+                            } else {
                                 fails++;
                             }
                         }
@@ -712,8 +689,7 @@ public class OilPerformer implements ActionPerformer {
                     if (eff == null) {
                         eff = new SpellEffect(target.getWurmId(), (byte) 14, power, (seconds));
                         effs.addSpellEffect(eff);
-                    }
-                    else {
+                    } else {
                         performer.getCommunicator().sendAlertServerMessage(" You pour the " + source.getName()
                                 + " over the " + target.getName()
                                 + " but it already has an enchantment of that same type on it. A priest has poured a piece of "
@@ -743,8 +719,7 @@ public class OilPerformer implements ActionPerformer {
                             source.setWeight(source.getWeightGrams() - 80, true);
                         else
                             Items.destroyItem(source.getWurmId());
-                    }
-                    else
+                    } else
                         Items.destroyItem(source.getWurmId());
 
                     e.itemNameBeforeEnchantment = target.getName();
@@ -793,14 +768,12 @@ public class OilPerformer implements ActionPerformer {
                                     arrowEnchantment.insert(Alchemy.dbconn);
                                     // update ModSupportDb
 
-                                }
-                                catch (RuntimeException | SQLException ex) {
+                                } catch (RuntimeException | SQLException ex) {
                                     Alchemy.logger.log(Level.INFO,
                                             "RuntimeException or SQLException happened or database closed", ex);
                                     ex.printStackTrace();
                                 }
-                            }
-                            else {
+                            } else {
                                 fails++;
                             }
                         }
@@ -833,8 +806,7 @@ public class OilPerformer implements ActionPerformer {
                     if (eff == null) {
                         eff = new SpellEffect(target.getWurmId(), (byte) 33, power, (seconds));
                         effs.addSpellEffect(eff);
-                    }
-                    else {
+                    } else {
                         performer.getCommunicator().sendAlertServerMessage(" You pour the " + source.getName()
                                 + " over the " + target.getName()
                                 + " but it already has an enchantment of that same type on it. A priest has poured a piece of "
@@ -864,8 +836,7 @@ public class OilPerformer implements ActionPerformer {
                             source.setWeight(source.getWeightGrams() - 80, true);
                         else
                             Items.destroyItem(source.getWurmId());
-                    }
-                    else
+                    } else
                         Items.destroyItem(source.getWurmId());
 
                     e.itemNameBeforeEnchantment = target.getName();
@@ -913,14 +884,12 @@ public class OilPerformer implements ActionPerformer {
                                     arrowEnchantment.insert(Alchemy.dbconn);
                                     // update ModSupportDb
 
-                                }
-                                catch (RuntimeException | SQLException ex) {
+                                } catch (RuntimeException | SQLException ex) {
                                     Alchemy.logger.log(Level.INFO,
                                             "RuntimeException or SQLException happened or database closed", ex);
                                     ex.printStackTrace();
                                 }
-                            }
-                            else {
+                            } else {
                                 fails++;
                             }
                         }
@@ -954,8 +923,7 @@ public class OilPerformer implements ActionPerformer {
                     if (eff == null) {
                         eff = new SpellEffect(target.getWurmId(), (byte) 26, power, (seconds));
                         effs.addSpellEffect(eff);
-                    }
-                    else {
+                    } else {
                         performer.getCommunicator().sendAlertServerMessage(" You pour the " + source.getName()
                                 + " over the " + target.getName()
                                 + " but it already has an enchantment of that same type on it. A priest has poured a piece of "
@@ -985,8 +953,7 @@ public class OilPerformer implements ActionPerformer {
                             source.setWeight(source.getWeightGrams() - 80, true);
                         else
                             Items.destroyItem(source.getWurmId());
-                    }
-                    else
+                    } else
                         Items.destroyItem(source.getWurmId());
 
                     e.itemNameBeforeEnchantment = target.getName();
@@ -1034,14 +1001,12 @@ public class OilPerformer implements ActionPerformer {
                                     arrowEnchantment.insert(Alchemy.dbconn);
                                     // update ModSupportDb
 
-                                }
-                                catch (RuntimeException | SQLException ex) {
+                                } catch (RuntimeException | SQLException ex) {
                                     Alchemy.logger.log(Level.INFO,
                                             "RuntimeException or SQLException happened or database closed", ex);
                                     ex.printStackTrace();
                                 }
-                            }
-                            else {
+                            } else {
                                 fails++;
                             }
                         }
@@ -1075,8 +1040,7 @@ public class OilPerformer implements ActionPerformer {
                     if (eff == null) {
                         eff = new SpellEffect(target.getWurmId(), (byte) 18, power, (seconds));
                         effs.addSpellEffect(eff);
-                    }
-                    else {
+                    } else {
                         performer.getCommunicator().sendAlertServerMessage(" You pour the " + source.getName()
                                 + " over the " + target.getName()
                                 + " but it already has an enchantment of that same type on it. A priest has poured a piece of "
@@ -1106,8 +1070,7 @@ public class OilPerformer implements ActionPerformer {
                             source.setWeight(source.getWeightGrams() - 80, true);
                         else
                             Items.destroyItem(source.getWurmId());
-                    }
-                    else
+                    } else
                         Items.destroyItem(source.getWurmId());
 
                     e.itemNameBeforeEnchantment = target.getName();
@@ -1158,14 +1121,12 @@ public class OilPerformer implements ActionPerformer {
                                     arrowEnchantment.insert(Alchemy.dbconn);
                                     // update ModSupportDb
 
-                                }
-                                catch (RuntimeException | SQLException ex) {
+                                } catch (RuntimeException | SQLException ex) {
                                     Alchemy.logger.log(Level.INFO,
                                             "RuntimeException or SQLException happened or database closed", ex);
                                     ex.printStackTrace();
                                 }
-                            }
-                            else {
+                            } else {
                                 fails++;
                             }
                         }
@@ -1199,8 +1160,7 @@ public class OilPerformer implements ActionPerformer {
                     if (eff == null) {
                         eff = new SpellEffect(target.getWurmId(), (byte) 27, power, (seconds));
                         effs.addSpellEffect(eff);
-                    }
-                    else {
+                    } else {
                         performer.getCommunicator().sendAlertServerMessage(" You pour the " + source.getName()
                                 + " over the " + target.getName()
                                 + " but it already has an enchantment of that same type on it. A priest has poured a piece of "
@@ -1230,8 +1190,7 @@ public class OilPerformer implements ActionPerformer {
                             source.setWeight(source.getWeightGrams() - 80, true);
                         else
                             Items.destroyItem(source.getWurmId());
-                    }
-                    else
+                    } else
                         Items.destroyItem(source.getWurmId());
 
                     e.itemNameBeforeEnchantment = target.getName();
@@ -1280,14 +1239,12 @@ public class OilPerformer implements ActionPerformer {
                                     arrowEnchantment.insert(Alchemy.dbconn);
                                     // update ModSupportDb
 
-                                }
-                                catch (RuntimeException | SQLException ex) {
+                                } catch (RuntimeException | SQLException ex) {
                                     Alchemy.logger.log(Level.INFO,
                                             "RuntimeException or SQLException happened or database closed", ex);
                                     ex.printStackTrace();
                                 }
-                            }
-                            else {
+                            } else {
                                 fails++;
                             }
                         }
@@ -1321,8 +1278,7 @@ public class OilPerformer implements ActionPerformer {
                     if (eff == null) {
                         eff = new SpellEffect(target.getWurmId(), (byte) 32, power, (seconds));
                         effs.addSpellEffect(eff);
-                    }
-                    else {
+                    } else {
                         performer.getCommunicator().sendAlertServerMessage(" You pour the " + source.getName()
                                 + " over the " + target.getName()
                                 + " but it already has an enchantment of that same type on it. A priest has poured a piece of "
@@ -1352,8 +1308,7 @@ public class OilPerformer implements ActionPerformer {
                             source.setWeight(source.getWeightGrams() - 80, true);
                         else
                             Items.destroyItem(source.getWurmId());
-                    }
-                    else
+                    } else
                         Items.destroyItem(source.getWurmId());
 
                     e.itemNameBeforeEnchantment = target.getName();
@@ -1402,15 +1357,13 @@ public class OilPerformer implements ActionPerformer {
                                     arrowEnchantment.insert(Alchemy.dbconn);
                                     // update ModSupportDb
 
-                                }
-                                catch (RuntimeException | SQLException ex) {
+                                } catch (RuntimeException | SQLException ex) {
                                     Alchemy.logger.log(Level.INFO,
                                             "RuntimeException or SQLException happened or database closed", ex);
                                     ex.printStackTrace();
                                 }
 
-                            }
-                            else {
+                            } else {
                                 fails++;
                             }
                         }
@@ -1447,8 +1400,7 @@ public class OilPerformer implements ActionPerformer {
                     EnchantmentHandler.enchantments.add(e);
                     // update ModSupportDb
 
-                }
-                catch (RuntimeException | SQLException ex) {
+                } catch (RuntimeException | SQLException ex) {
                     Alchemy.logger.log(Level.SEVERE, "RuntimeException or SQLException happened", ex);
                     ex.printStackTrace();
                 }

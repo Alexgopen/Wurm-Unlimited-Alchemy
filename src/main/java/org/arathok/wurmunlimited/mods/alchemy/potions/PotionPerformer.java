@@ -55,8 +55,7 @@ public class PotionPerformer implements ActionPerformer {
                     types)
 
                             .range(4).priority(1000).build();
-        }
-        else {
+        } else {
             types = new int[] { 6 /* ACTION_TYPE_NOMOVE */, 48 /* ACTION_TYPE_ENEMY_ALWAYS */,
                     35 /* DON'T CARE WHETHER SOURCE OR TARGET */,
                     // 27, // NONSTACK
@@ -97,8 +96,7 @@ public class PotionPerformer implements ActionPerformer {
             action.setTimeLeft(30);
             performer.sendActionControl(action.getActionString(), true, 30);
             playedOpeningSound = false;
-        }
-        else if (counter > 1.0F && action.getSecond() == 1) {
+        } else if (counter > 1.0F && action.getSecond() == 1) {
             if (!playedOpeningSound) {
                 SoundPlayer.playSound("sound.openFlask", performer, 1.6F);
 
@@ -109,8 +107,7 @@ public class PotionPerformer implements ActionPerformer {
             }
             return propagate(action, ActionPropagation.CONTINUE_ACTION, ActionPropagation.NO_SERVER_PROPAGATION,
                     ActionPropagation.NO_ACTION_PERFORMER_PROPAGATION);
-        }
-        else if (counter > 1.0F && action.getSecond() == 3) {
+        } else if (counter > 1.0F && action.getSecond() == 3) {
             SoundPlayer.playSound("sound.drink", performer, 1.6F);
 
             boolean heal = false;
@@ -153,8 +150,7 @@ public class PotionPerformer implements ActionPerformer {
                             thePlayer.addWoundOfType(thePlayer, (byte) 5, 23, false, 1.0F, false, 54000, 1, 0.0F, false,
                                     true);
                             playerInQuestion.toxicityWarningLevel = 1;
-                        }
-                        else {
+                        } else {
                             playerInQuestion.toxicityWarningLevel = 0;
                             AddictionHandler.addictions.set(index, playerInQuestion);
                             thePlayer.die(false, "toxicity");
@@ -164,8 +160,7 @@ public class PotionPerformer implements ActionPerformer {
                         return propagate(action, ActionPropagation.FINISH_ACTION,
                                 ActionPropagation.NO_SERVER_PROPAGATION,
                                 ActionPropagation.NO_ACTION_PERFORMER_PROPAGATION);
-                    }
-                    else if (playerInQuestion.coolDownHealEnd > time
+                    } else if (playerInQuestion.coolDownHealEnd > time
                             && (target.getTemplateId() == PotionItems.potionKarmaId
                                     || target.getTemplateId() == PotionItems.potionManaId
                                     || target.getTemplateId() == PotionItems.potionIdHeal
@@ -182,8 +177,7 @@ public class PotionPerformer implements ActionPerformer {
                         return propagate(action, ActionPropagation.FINISH_ACTION,
                                 ActionPropagation.NO_SERVER_PROPAGATION,
                                 ActionPropagation.NO_ACTION_PERFORMER_PROPAGATION);
-                    }
-                    else if (playerInQuestion.coolDownBuffEnd > time && playerInQuestion.toxicityWarningLevel < 1
+                    } else if (playerInQuestion.coolDownBuffEnd > time && playerInQuestion.toxicityWarningLevel < 1
                             && (target.getTemplateId() == PotionItems.potionIdExcell
                                     || target.getTemplateId() == PotionItems.potionIdGoat
                                     || target.getTemplateId() == PotionItems.potionIdFranticCharge
@@ -244,16 +238,14 @@ public class PotionPerformer implements ActionPerformer {
                     eff = new SpellEffect(performer.getWurmId(), (byte) 28, power, Math.max(1, seconds));
 
                     effs.addSpellEffect(eff);
-                }
-                else if (eff.getPower() < power || eff.timeleft < seconds) {
+                } else if (eff.getPower() < power || eff.timeleft < seconds) {
                     eff.setPower(power);
                     eff.setTimeleft(Math.max(eff.timeleft, Math.max(1, seconds)));
                     performer.sendUpdateSpellEffect(eff);
                 }
                 if (target.getWeightGrams() - 80 > 0) {
                     target.setWeight(target.getWeightGrams() - 80, true);
-                }
-                else {
+                } else {
                     Items.destroyItem(target.getWurmId());
                 }
 
@@ -276,16 +268,14 @@ public class PotionPerformer implements ActionPerformer {
                     eff = new SpellEffect(performer.getWurmId(), (byte) 19, power, Math.max(1, seconds));
 
                     effs.addSpellEffect(eff);
-                }
-                else if (eff.getPower() < power || eff.timeleft < seconds) {
+                } else if (eff.getPower() < power || eff.timeleft < seconds) {
                     eff.setPower(power);
                     eff.setTimeleft(Math.max(eff.timeleft, Math.max(1, seconds)));
                     performer.sendUpdateSpellEffect(eff);
                 }
                 if (target.getWeightGrams() - 80 > 0) {
                     target.setWeight(target.getWeightGrams() - 80, true);
-                }
-                else {
+                } else {
                     Items.destroyItem(target.getWurmId());
                 }
 
@@ -309,16 +299,14 @@ public class PotionPerformer implements ActionPerformer {
                     eff = new SpellEffect(performer.getWurmId(), (byte) 39, power, Math.max(1, seconds));
 
                     effs.addSpellEffect(eff);
-                }
-                else if (eff.getPower() < power || eff.timeleft < seconds) {
+                } else if (eff.getPower() < power || eff.timeleft < seconds) {
                     eff.setPower(power);
                     eff.setTimeleft(Math.max(eff.timeleft, Math.max(1, seconds)));
                     performer.sendUpdateSpellEffect(eff);
                 }
                 if (target.getWeightGrams() - 80 > 0) {
                     target.setWeight(target.getWeightGrams() - 80, true);
-                }
-                else {
+                } else {
                     Items.destroyItem(target.getWurmId());
                 }
                 performer.getCommunicator()
@@ -340,16 +328,14 @@ public class PotionPerformer implements ActionPerformer {
                 if (eff == null) {
                     eff = new SpellEffect(performer.getWurmId(), (byte) 38, power, Math.max(1, seconds));
                     effs.addSpellEffect(eff);
-                }
-                else if (eff.getPower() < power || eff.timeleft < seconds) {
+                } else if (eff.getPower() < power || eff.timeleft < seconds) {
                     eff.setPower(power);
                     eff.setTimeleft(Math.max(eff.timeleft, Math.max(1, seconds)));
                     performer.sendUpdateSpellEffect(eff);
                 }
                 if (target.getWeightGrams() - 80 > 0) {
                     target.setWeight(target.getWeightGrams() - 80, true);
-                }
-                else {
+                } else {
                     Items.destroyItem(target.getWurmId());
                 }
                 performer.getCommunicator()
@@ -371,16 +357,14 @@ public class PotionPerformer implements ActionPerformer {
                     eff = new SpellEffect(performer.getWurmId(), (byte) 21, power, Math.max(1, seconds));
 
                     effs.addSpellEffect(eff);
-                }
-                else if (eff.getPower() < power || eff.timeleft < seconds) {
+                } else if (eff.getPower() < power || eff.timeleft < seconds) {
                     eff.setPower(power);
                     eff.setTimeleft(Math.max(eff.timeleft, Math.max(1, seconds)));
                     performer.sendUpdateSpellEffect(eff);
                 }
                 if (target.getWeightGrams() - 80 > 0) {
                     target.setWeight(target.getWeightGrams() - 80, true);
-                }
-                else {
+                } else {
                     Items.destroyItem(target.getWurmId());
                 }
                 performer.getCommunicator()
@@ -403,16 +387,14 @@ public class PotionPerformer implements ActionPerformer {
                     eff = new SpellEffect(performer.getWurmId(), (byte) 40, power, Math.max(1, seconds));
 
                     effs.addSpellEffect(eff);
-                }
-                else if (eff.getPower() < power || eff.timeleft < seconds) {
+                } else if (eff.getPower() < power || eff.timeleft < seconds) {
                     eff.setPower(power);
                     eff.setTimeleft(Math.max(eff.timeleft, Math.max(1, seconds)));
                     performer.sendUpdateSpellEffect(eff);
                 }
                 if (target.getWeightGrams() - 80 > 0) {
                     target.setWeight(target.getWeightGrams() - 80, true);
-                }
-                else {
+                } else {
                     Items.destroyItem(target.getWurmId());
                 }
 
@@ -435,16 +417,14 @@ public class PotionPerformer implements ActionPerformer {
                 if (eff == null) {
                     eff = new SpellEffect(performer.getWurmId(), (byte) 30, power, Math.max(1, seconds));
                     effs.addSpellEffect(eff);
-                }
-                else if (eff.getPower() < power || eff.timeleft < seconds) {
+                } else if (eff.getPower() < power || eff.timeleft < seconds) {
                     eff.setPower(power);
                     eff.setTimeleft(Math.max(eff.timeleft, Math.max(1, seconds)));
                     performer.sendUpdateSpellEffect(eff);
                 }
                 if (target.getWeightGrams() - 80 > 0) {
                     target.setWeight(target.getWeightGrams() - 80, true);
-                }
-                else {
+                } else {
                     Items.destroyItem(target.getWurmId());
                 }
 
@@ -458,8 +438,7 @@ public class PotionPerformer implements ActionPerformer {
                     performer.getCommunicator().sendNormalServerMessage(
                             " You are too tired mentally, to store your brains capacity as sleep bonus.");
 
-                }
-                else {
+                } else {
 
                     double toconvert;
                     toconvert = Math.max(20.0D, power);
@@ -496,16 +475,14 @@ public class PotionPerformer implements ActionPerformer {
                     eff = new SpellEffect(performer.getWurmId(), (byte) 23, power, Math.max(1, seconds));
 
                     effs.addSpellEffect(eff);
-                }
-                else if (eff.getPower() < power || eff.timeleft < seconds) {
+                } else if (eff.getPower() < power || eff.timeleft < seconds) {
                     eff.setPower(power);
                     eff.setTimeleft(Math.max(eff.timeleft, Math.max(1, seconds)));
                     performer.sendUpdateSpellEffect(eff);
                 }
                 if (target.getWeightGrams() - 80 > 0) {
                     target.setWeight(target.getWeightGrams() - 80, true);
-                }
-                else {
+                } else {
                     Items.destroyItem(target.getWurmId());
                 }
                 performer.getCommunicator()
@@ -528,19 +505,16 @@ public class PotionPerformer implements ActionPerformer {
                     eff = new SpellEffect(performer.getWurmId(), (byte) 22, power, Math.max(1, seconds));
 
                     effs.addSpellEffect(eff);
-                }
-                else if (eff.getPower() < power || eff.timeleft < seconds) {
+                } else if (eff.getPower() < power || eff.timeleft < seconds) {
                     eff.setPower(power);
                     eff.setTimeleft(Math.max(eff.timeleft, Math.max(1, seconds)));
                     performer.sendUpdateSpellEffect(eff);
                 }
                 if (target.getWeightGrams() - 80 > 0) {
                     target.setWeight(target.getWeightGrams() - 80, true);
-                }
-                else if (target.getWeightGrams() - 80 > 0) {
+                } else if (target.getWeightGrams() - 80 > 0) {
                     target.setWeight(target.getWeightGrams() - 80, true);
-                }
-                else {
+                } else {
                     Items.destroyItem(target.getWurmId());
                 }
                 performer.getCommunicator()
@@ -560,16 +534,13 @@ public class PotionPerformer implements ActionPerformer {
                             .sendNormalServerMessage("You have no wounds to heal and wasted your potion!");
                     if (target.getWeightGrams() - 80 > 0) {
                         target.setWeight(target.getWeightGrams() - 80, true);
-                    }
-                    else if (target.getWeightGrams() - 80 > 0) {
+                    } else if (target.getWeightGrams() - 80 > 0) {
                         target.setWeight(target.getWeightGrams() - 80, true);
-                    }
-                    else {
+                    } else {
                         Items.destroyItem(target.getWurmId());
                     }
 
-                }
-                else
+                } else
                     for (Wound w : tWounds.getWounds()) {
                         if (w.getSeverity() <= healingPool) {
                             healingPool -= w.getSeverity();
@@ -586,8 +557,7 @@ public class PotionPerformer implements ActionPerformer {
                 heal = true;
                 if (target.getWeightGrams() - 80 > 0) {
                     target.setWeight(target.getWeightGrams() - 80, true);
-                }
-                else {
+                } else {
                     Items.destroyItem(target.getWurmId());
                 }
             }
@@ -601,8 +571,7 @@ public class PotionPerformer implements ActionPerformer {
                 heal = true;
                 if (target.getWeightGrams() - 80 > 0) {
                     target.setWeight(target.getWeightGrams() - 80, true);
-                }
-                else {
+                } else {
                     Items.destroyItem(target.getWurmId());
                 }
 
@@ -625,8 +594,7 @@ public class PotionPerformer implements ActionPerformer {
                 int manaPool = (Math.max(5, (int) power));
                 try {
                     performer.setFavor(performer.getFavor() + manaPool);
-                }
-                catch (IOException e) {
+                } catch (IOException e) {
                     e.printStackTrace();
                 }
 
@@ -662,12 +630,10 @@ public class PotionPerformer implements ActionPerformer {
                         // chugging potion was succesful, reset toxicity level.
                         if (heal) {
                             playerInQuestion.coolDownHealEnd = time + (Config.cooldownPotion * 1000L);
-                        }
-                        else {
+                        } else {
                             if (target.getTemplateId() == PotionItems.potionIdVynora) {
                                 playerInQuestion.coolDownBuffEnd = time + (Config.cooldownPotion * 4000L);
-                            }
-                            else
+                            } else
                                 playerInQuestion.coolDownBuffEnd = time + (Config.cooldownPotion * 1000L);
                         }
                         playerInQuestion.toxicityWarningLevel = 0;
@@ -675,8 +641,7 @@ public class PotionPerformer implements ActionPerformer {
                         // Update the player in the DB
                         try {
                             playerInQuestion.insert(Alchemy.dbconn);
-                        }
-                        catch (SQLException e) {
+                        } catch (SQLException e) {
                             e.printStackTrace();
                         }
                         AddictionHandler.addictions.set(index, playerInQuestion);
@@ -692,8 +657,7 @@ public class PotionPerformer implements ActionPerformer {
                     playerAddiction.previousAddictionLevel = 0;
                     if (heal) {
                         playerAddiction.coolDownHealEnd = time + (Config.cooldownPotion * 1000L);
-                    }
-                    else {
+                    } else {
                         playerAddiction.coolDownBuffEnd = time + (Config.cooldownPotion * 1000L);
                     }
 
@@ -703,8 +667,7 @@ public class PotionPerformer implements ActionPerformer {
                     // Insert the player into the DB
                     try {
                         playerAddiction.insert(Alchemy.dbconn);
-                    }
-                    catch (SQLException e) {
+                    } catch (SQLException e) {
                         e.printStackTrace();
                         Alchemy.logger.log(Level.SEVERE, "couldn't write addiction to DB!");
                     }
